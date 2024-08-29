@@ -5,10 +5,13 @@ import { Person } from "./components/Person";
 import { PersonList } from "./components/PersonList";
 import { Status } from "./components/Status";
 import { Heading } from "./components/Heading";
+import { Button } from "./components/Button";
+import { Input } from "./components/Input";
+import { Container } from "./components/Container";
 
 function App() {
   return (
-    <>
+    <Container styles={{ border: "1px solid red", padding: "1rem" }}>
       <Greet name={"Joey"} messageCount={20} isLoggedIn={true} />
       <Person name={{ first: "Bruce", last: "Wayne" }} />
       <PersonList
@@ -20,10 +23,18 @@ function App() {
       />
       <Status status={"success"} />
       <Heading name="Joey">
-        <h3>Wrapped in a JSX element</h3>
+        <span>Wrapped in a JSX element</span>
       </Heading>
-      <Heading name="joey">Direct string children</Heading>
-    </>
+      <Heading name="Joey">Direct string children</Heading>
+      <Button
+        handleClick={(event, id) => console.log("Button clicked", event, id)}
+        text="Click me"
+      />
+      <Input
+        value=""
+        handleChange={(event) => console.log(event.target.value)}
+      />
+    </Container>
   );
 }
 
