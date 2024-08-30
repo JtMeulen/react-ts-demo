@@ -8,6 +8,8 @@ import { Heading } from "./components/Heading";
 import { Button } from "./components/Button";
 import { Input } from "./components/Input";
 import { Container } from "./components/Container";
+import { AuthState } from "./components/AuthState";
+import { Counter } from "./components/Counter";
 
 function App() {
   return (
@@ -34,6 +36,8 @@ function App() {
         value=""
         handleChange={(event) => console.log(event.target.value)}
       />
+      <AuthState />
+      <Counter />
     </Container>
   );
 }
