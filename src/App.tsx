@@ -10,35 +10,47 @@ import { Input } from "./components/Input";
 import { Container } from "./components/Container";
 import { AuthState } from "./components/AuthState";
 import { Counter } from "./components/Counter";
+import { ThemeContextProvider } from "./components/context/ThemeContext";
+import { Box } from "./components/context/Box";
+import { UserContextProvider } from "./components/context/UserContext";
+import { User } from "./components/context/User";
 
 function App() {
   return (
-    <Container styles={{ border: "1px solid red", padding: "1rem" }}>
-      <Greet name={"Joey"} messageCount={20} isLoggedIn={true} />
-      <Person name={{ first: "Bruce", last: "Wayne" }} />
-      <PersonList
-        names={[
-          { first: "Bruce", last: "Wayne" },
-          { first: "Clark", last: "Kent" },
-          { first: "Tony", last: "Stark" },
-        ]}
-      />
-      <Status status={"success"} />
-      <Heading name="Joey">
-        <span>Wrapped in a JSX element</span>
-      </Heading>
-      <Heading name="Joey">Direct string children</Heading>
-      <Button
-        handleClick={(event, id) => console.log("Button clicked", event, id)}
-        text="Click me"
-      />
-      <Input
-        value=""
-        handleChange={(event) => console.log(event.target.value)}
-      />
-      <AuthState />
-      <Counter />
-    </Container>
+    <ThemeContextProvider>
+      <UserContextProvider>
+        <Container styles={{ border: "1px solid red", padding: "1rem" }}>
+          <Greet name={"Joey"} messageCount={20} isLoggedIn={true} />
+          <Person name={{ first: "Bruce", last: "Wayne" }} />
+          <PersonList
+            names={[
+              { first: "Bruce", last: "Wayne" },
+              { first: "Clark", last: "Kent" },
+              { first: "Tony", last: "Stark" },
+            ]}
+          />
+          <Status status={"success"} />
+          <Heading name="Joey">
+            <span>Wrapped in a JSX element</span>
+          </Heading>
+          <Heading name="Joey">Direct string children</Heading>
+          <Button
+            handleClick={(event, id) =>
+              console.log("Button clicked", event, id)
+            }
+            text="Click me"
+          />
+          <Input
+            value=""
+            handleChange={(event) => console.log(event.target.value)}
+          />
+          <AuthState />
+          <Counter />
+        </Container>
+        <Box />
+        <User />
+      </UserContextProvider>
+    </ThemeContextProvider>
   );
 }
 
