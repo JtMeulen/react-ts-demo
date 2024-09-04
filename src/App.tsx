@@ -15,6 +15,8 @@ import { Box } from "./components/context/Box";
 import { UserContextProvider } from "./components/context/UserContext";
 import { User } from "./components/context/User";
 import { UseRefMutable } from "./components/UseRefMutable";
+import { RandomNumber } from "./components/RestrictedProps";
+import { Toast } from "./components/TemplateLiteral";
 
 function App() {
   return (
@@ -51,6 +53,8 @@ function App() {
         <Box />
         <User />
         <UseRefMutable />
+        <RandomNumber value={10} isNegative />
+        <Toast position={"center"} />
       </UserContextProvider>
     </ThemeContextProvider>
   );
