@@ -1,4 +1,4 @@
-type ButtonProps = {
+export type ButtonProps = {
   text: string;
   handleClick: (event: React.MouseEvent<HTMLButtonElement>, id: number) => void;
 };

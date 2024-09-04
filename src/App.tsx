@@ -14,6 +14,7 @@ import { ThemeContextProvider } from "./components/context/ThemeContext";
 import { Box } from "./components/context/Box";
 import { UserContextProvider } from "./components/context/UserContext";
 import { User } from "./components/context/User";
+import { UseRefMutable } from "./components/UseRefMutable";
 
 function App() {
   return (
@@ -49,6 +50,7 @@ function App() {
         </Container>
         <Box />
         <User />
+        <UseRefMutable />
       </UserContextProvider>
     </ThemeContextProvider>
   );
